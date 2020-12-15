@@ -20,10 +20,20 @@
        
      </div>
     </section>
+    <footer>
+      <div class="text">
+      <h2> skylar 2020 </h2>
+      <a href="https://github.com/skylarbeese/sen.git"> github </a>
+      </div>
+    </footer>
 </body>
 <script type="module" src="app.js"></script>
 </html>
 <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
   section{
     justify-content: center;
     align-items: center;
@@ -34,7 +44,20 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    
+    padding: 12px 20px;
+  }
+  button{
+    padding: 8px 20px;
+    margin: 20px;
+    border: none;
+    border: 1px solid black;
+    background-color: cornsilk;
+  }
+  .click{
+    background-color: crimson;
+  }
+  button:hover{
+    background-color: blueviolet;
   }
   .img-window {
       width: 90%;
@@ -61,5 +84,31 @@
     background-color: azure;
     margin: 20px;
     border: 1px solid black;
+  }
+  footer{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 5%;
+    background-color: darkgray;
+    padding: 20px;
+  }
+  .text{
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    width: 50%;
+    height: 100%;
+
+  }
+  .text a {
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+  }
+  .text a:hover{
+    color:cyan;
+
   }
 </style>

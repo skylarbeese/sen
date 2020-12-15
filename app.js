@@ -7,6 +7,17 @@ const rep = document.querySelector('.rep-btn')
 const dem = document.querySelector('.dem-btn')
 const all = document.querySelector('.all-btn')
 const win = document.querySelector('.img-window')
+const color = document.querySelectorAll("button")
+
+color.forEach(co => {
+co.addEventListener('click', () => {
+if(!co.classList.contains("click")) {
+    co.classList.add("click");
+} else {
+    co.classList.remove("click");
+}
+})
+})
 
 let con = document.createElement('div')
 con.setAttribute('class', 'con-div')
