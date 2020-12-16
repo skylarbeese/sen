@@ -8,8 +8,11 @@ const dem = document.querySelector('.dem-btn')
 const all = document.querySelector('.all-btn')
 const win = document.querySelector('.img-window')
 const color = document.querySelectorAll("button")
+const searchBar = document.querySelector('.search')
+
 
 color.forEach(co => {
+
 co.addEventListener('click', () => {
 if(!co.classList.contains("click")) {
     co.classList.add("click");
@@ -22,6 +25,17 @@ if(!co.classList.contains("click")) {
 let con = document.createElement('div')
 con.setAttribute('class', 'con-div')
 win.appendChild(con)
+
+searchBar.addEventListener('keyup', (e) => {
+    console.log(e.target.value);
+    const searchString = e.target.value
+     const filtered  = getSimplified(sen).filter((senator) => {
+        return  senator.first.includes(searchString) || senator.last.includes(searchString)
+         })
+         console.log(filtered)
+         populateSen(filtered)
+  })
+    
 
 
 const repulican = getSimplified(sen).filter(sen => sen.party === "R")
@@ -70,7 +84,11 @@ function populateSen(senators) {
       party.setAttribute('class', 'party')
       party.textContent = sen.Senparty
      
-   
+     
+     
+    
+     
+
      let par = document.createElement('h2')
      par.setAttribute('class', 'par')
      if(sen.party === "R") par.textContent = "republican"
@@ -85,7 +103,9 @@ function populateSen(senators) {
       missedVotes.setAttribute('class', 'senoirtiy')
       missedVotes.textContent = sen.missedVotes
 
-      
+      let first = document.createElement('h1')
+      let last = document.createElement('h1')
+
       let id = document.createElement('h1')
       id.setAttribute('class', 'id')
       id.textContent = sen.id
@@ -115,6 +135,8 @@ function getSimplified(senArray) {
            senoirtiy: parseInt(sen.senoirtiy, 10),
            birth: parseInt(sen.date_of_birth, 10),
            missedVotes: sen.missed_votes_pct,
+           first: sen.first_name,
+           last: sen.last_name,
            imgURL: `https://www.govtrack.us/static/legislator-photos/${sen.govtrack_id}-200px.jpeg`
         }
     })
@@ -146,4 +168,4 @@ function removeChildren(container) {
 } 
 populateSen(getSimplified(sen))
 
-console.log(mostSeniortiy)
+//console.log(mostSeniortiy)
