@@ -28,7 +28,7 @@ win.appendChild(con)
 
 searchBar.addEventListener('keyup', (e) => {
     console.log(e.target.value);
-    const searchString = e.target.value
+    const searchString = capitalize(e.target.value)
      const filtered  = getSimplified(sen).filter((senator) => {
         return  senator.first.includes(searchString) || senator.last.includes(searchString)
          })
@@ -36,7 +36,9 @@ searchBar.addEventListener('keyup', (e) => {
          populateSen(filtered)
   })
     
-
+  function capitalize(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+}
 
 const repulican = getSimplified(sen).filter(sen => sen.party === "R")
 const demicart = getSimplified(sen).filter(sen => sen.party === "D")
