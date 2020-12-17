@@ -29,6 +29,7 @@ win.appendChild(con)
 searchBar.addEventListener('keyup', (e) => {
     console.log(e.target.value);
     const searchString = capitalize(e.target.value)
+    console.log(searchString)
      const filtered  = getSimplified(sen).filter((senator) => {
         return  senator.first.includes(searchString) || senator.last.includes(searchString)
          })
